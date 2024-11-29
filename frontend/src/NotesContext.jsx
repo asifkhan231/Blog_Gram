@@ -110,9 +110,15 @@ function BlogsContext({ children }) {
 
     const deleteBlog = async (id) => {
         try {
-
+            if (!token) {
+                throw 'token is not available'
+            }
             const url = `${originUrl}/delete/${id}`
-            const res = await axios.delete(url)
+            const res = await axios.delete(url, {
+                headers: {
+                    access_token: `Bearer ${token}`
+                }
+            })
             const data = res.data
             setAlertMsg({
                 snackbarOpen: true,
@@ -121,6 +127,7 @@ function BlogsContext({ children }) {
             })
             await fetchBlogs()
         } catch (error) {
+            console.log(error)
             setAlertMsg({
                 snackbarOpen: true,
                 alertSeverity: 'error',
@@ -129,7 +136,7 @@ function BlogsContext({ children }) {
         }
     }
     useEffect(() => {
-        fetchBlogs()
+        ((fetchBlogs)())
     }, [])
 
     const createBlog = async (e) => {

@@ -15,9 +15,9 @@ const addBlog = async (req, res) => {
 
 const deleteBlog = async (req, res) => {
     try {
-        const id = req.params
+        const id = req.params.id
         const deleteQuery = `DELETE FROM blogs WHERE id = ?`
-        const [result] = await con.execute(deleteQuery, id)
+        const [result] = await con.execute(deleteQuery, [id])
         if (result.affectedRows === 0) {
             res.status(404).json({ message: "blog not found" })
         }
@@ -41,7 +41,7 @@ const getAllBlogs = async (req, res) => {
 
 const getBlogById = async (req, res) => {
     try {
-        const id = req.params
+        const id = req.params.id
         const getQuery = `SELECT * FROM blogs WHERE id = ?`
         const [result] = await con.execute(getQuery, id)
         res.status(200).json({ blogs: result })

@@ -6,14 +6,13 @@ import { Link } from 'react-router-dom'
 import './AllBlogs.css'
 
 function AllBlogs() {
-    const { blogs, deleteBlog, } = useBlogsContext()
+    const { blogs, deleteBlog } = useBlogsContext()
 
     const sortedBlogs = [...blogs]?.sort((a, b) => {
-        // Use `updatedAt` if it exists, otherwise fallback to `createdAt`
         const dateA = new Date(a.createdAt);
         const dateB = new Date(b.createdAt);
 
-        return dateB - dateA; // Sort in descending order
+        return dateA - dateB;
     });
     return (
         <>
