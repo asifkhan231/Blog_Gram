@@ -9,11 +9,9 @@ import cors from 'cors'
 import auth from "./src/middleware/auth.js";
 import gAuthRouter from "./src/routers/googleAuthRoutes.js";
 
-const app = express()
-const PORT = process.env.PORT
-// app.use('/', (req, res) => {
-//     res.send("hello from express")
-// })
+export const app = express()
+const PORT = process.env.PORT||3000
+
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // Helmet for securing HTTP headers
