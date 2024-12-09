@@ -8,6 +8,7 @@ const auth = (req, res, next) => {
             token = token.split(' ')[1]
             const user = jwt.verify(token, process.env.JWT_SECRET_KEY)
             req.user = user
+            console.log("jwt decode",user)
             next()
         } else {
             return res.status(401).json({ message: "unauthorize access" })

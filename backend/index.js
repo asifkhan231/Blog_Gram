@@ -7,9 +7,10 @@ import compression from "compression";
 import helmet from 'helmet'
 import cors from 'cors'
 import auth from "./src/middleware/auth.js";
+import gAuthRouter from "./src/routers/googleAuthRoutes.js";
 
 const app = express()
-const PORT = process.env.PORT 
+const PORT = process.env.PORT
 // app.use('/', (req, res) => {
 //     res.send("hello from express")
 // })
@@ -25,6 +26,7 @@ app.use(compression());
 app.use(express.json())
 app.use('/blogs', auth, blogRouters)
 app.use('/users', userRouters)
+app.use('/auth', gAuthRouter)
 
 app.listen(PORT, () => {
     console.log('server running on port 8080')

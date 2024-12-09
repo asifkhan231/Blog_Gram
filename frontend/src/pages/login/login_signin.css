@@ -5,9 +5,12 @@
     height: 100vh;
     background-color: #f5f5f5;
     padding: 20px;
+    gap: 15px;
   }
   
   .login {
+    display: flex;
+    flex-direction: column;
     background-color: #ffffff;
     padding: 30px 40px;
     border-radius: 10px;
@@ -15,12 +18,13 @@
     width: 100%;
     max-width: 400px;
     text-align: center;
+    gap: 5px;
   }
   
   .login h3 {
     font-size: 1.8rem;
     color: #333;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
   
   .text_fields {
@@ -49,7 +53,7 @@
     color: white;
     font-size: 1rem;
     padding: 10px 20px;
-    margin-top: 10px;
+    margin-top: 5px;
     text-transform: capitalize;
     transition: background-color 0.3s ease;
   }
@@ -59,7 +63,7 @@
   }
   
   .login p {
-    margin-top: 15px;
+    margin-top: 10px;
     font-size: 1rem;
     color: #555;
   }

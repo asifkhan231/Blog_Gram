@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form'
 import './login_signin.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { useBlogsContext } from '../../NotesContext'
+import Google_auth from '../../components/Google_auth'
 
 function Login() {
     const { submitFormHandle } = useBlogsContext()
@@ -16,8 +17,8 @@ function Login() {
 
     const submitHandle = async (data) => {
         try {
-           await submitFormHandle(data)
-           navigate('/')
+            await submitFormHandle(data)
+            navigate('/')
         } catch (error) {
             console.log("enter valid email/password")
         }
@@ -27,6 +28,7 @@ function Login() {
         <div className='lg_si_container'>
             <div className='login'>
                 <h3>Login</h3>
+
                 <form onSubmit={handleSubmit(submitHandle)} className='text_fields'>
                     <div>
 
@@ -63,6 +65,8 @@ function Login() {
                         type='submit' >Submit</Button>
                 </form>
                 <p>Don't have account <Link to='/sign-up'>Sign up</Link></p>
+            <h4>OR</h4>
+            <Google_auth type='login' />
             </div >
 
         </div>

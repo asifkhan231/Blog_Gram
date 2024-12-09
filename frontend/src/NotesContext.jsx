@@ -183,7 +183,7 @@ function BlogsContext({ children }) {
 
 
     return (
-        <blogContext.Provider value={{ blogs, createBlog, deleteBlog, submitFormHandle, alertMsg, handleSnackbarClose, handleSignUp }}>
+        <blogContext.Provider value={{ blogs, createBlog, deleteBlog, submitFormHandle, alertMsg,setAlertMsg, handleSnackbarClose, handleSignUp }}>
             {children}
         </blogContext.Provider>
     )

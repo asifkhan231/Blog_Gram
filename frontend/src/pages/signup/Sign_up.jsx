@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form'
 import '../login/login_signin.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { useBlogsContext } from '../../NotesContext'
+import Google_auth from '../../components/Google_auth'
 
 function Sign_up() {
     const { handleSignUp } = useBlogsContext()
@@ -72,6 +73,8 @@ function Sign_up() {
                         type='submit' >Submit</Button>
                 </form>
                 <p>Already have account <Link to='/login'>login..</Link></p>
+                <h4>OR</h4>
+                <Google_auth type='Sign-up'/>
             </div >
         </div>
     )
