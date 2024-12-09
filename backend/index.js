@@ -28,6 +28,10 @@ app.use('/blogs', auth, blogRouters)
 app.use('/users', userRouters)
 app.use('/auth', gAuthRouter)
 
+app.get('/',(req,res) => {
+    res.send("hello from blog server")
+})
+
 app.listen(PORT, () => {
     console.log('server running on port 8080')
 })
